@@ -1,0 +1,10 @@
+name: JTVAE
+channels:
+- pytorch
+- defaults
+- conda-forge
+dependencies:
+- python=2.7
+- pytorch>=0.2
+- rdkit=2017.09
+- pip
