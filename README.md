@@ -16,4 +16,5 @@ The overall patents dataset can be found in http://ftp.ebi.ac.uk/pub/databases/c
     i. Lockate the downloaded dataset in dataset/SureChEMBL \
     ii. From the main folder run: python handle_patents_dataset.py \
     iii. Move the generated SureChEMBL.txt file to dataset/QED
+ 
  However, notice that all the dataset used for training is already found in data/PL/ folder of each model.
