@@ -260,3 +260,13 @@ class JTNNVAE(nn.Module):
             if not has_error: return cur_mol, cur_mol
 
         return None, pre_mol
+
+
+    def predict(self, x_batch):
+        x_batch, x_jtenc_holder, x_mpn_holder, x_jtmpn_holder = x_batch
+        x_tree_vecs, x_tree_mess, x_mol_vecs = self.encode(x_jtenc_holder, x_mpn_holder)
+        z_tree_vecs, tree_kl = self.rsample(x_tree_vecs, self.T_mean, self.T_var)
+        z_mol_vecs, mol_kl = self.rsample(x_mol_vecs, self.G_mean, self.G_var)
+
+        output_SMILES = self.decode(z_tree_vecs, z_mol_vecs, prob_decode=False)
+        return output_SMILES
